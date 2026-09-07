@@ -5,6 +5,7 @@ on:
       - main
 
 permissions:
+  contents: read # to checkout, and to git fetch/diff the merged pull request's head commit
   actions: read # to read and reuse a merged pull request's own results
   pull-requests: read # to find the pull request behind a merge commit
 

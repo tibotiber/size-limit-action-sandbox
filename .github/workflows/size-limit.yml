@@ -3,6 +3,7 @@ on:
   pull_request:
 
 permissions:
+  contents: read # to checkout, and to git fetch/diff the base branch
   pull-requests: write # to post the comment
   actions: read # to read the main branch's results
 
