@@ -1,0 +1,23 @@
+name: Check bundle size
+on:
+  pull_request:
+
+permissions:
+  pull-requests: write # to post the comment
+  actions: read # to read the main branch's results
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Post bundle size to PR
+        uses: smplrspace/size-limit-action@feature/use-artifacts
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          use_artifacts: true

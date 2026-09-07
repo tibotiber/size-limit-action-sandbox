@@ -1,0 +1,25 @@
+name: Update main branch bundle size baseline
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read # to read and reuse a merged pull request's own results
+  pull-requests: read # to find the pull request behind a merge commit
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Update bundle size baseline
+        uses: smplrspace/size-limit-action@feature/use-artifacts
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          use_artifacts: true

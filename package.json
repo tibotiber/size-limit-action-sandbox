@@ -1,0 +1,17 @@
+{
+  "name": "size-limit-action-sandbox",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "100 kB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/file": "^11.1.4",
+    "size-limit": "^11.1.4"
+  }
+}
